@@ -14,6 +14,7 @@ Teste "às cegas" e apartidário de propostas eleitorais. A pessoa compara pares
 | --- | --- |
 | `public/concordo.js` | Banco de propostas, links dos planos no TSE e `placar()`. |
 | `public/index.html`, `public/app.js`, `public/estilo.css`, `public/icone.svg` | O site inteiro. Sem framework e sem build. |
+| `public/compartilhar.png` | Imagem da prévia de link (1200×630, < 300 KB). Refaça se a frase principal mudar. |
 | `vercel.json` | Pasta publicada (`public/`) e cabeçalhos de segurança (CSP etc.). |
 | `teste.js` | Teste único (`npm test`). |
 | `proposta-pl.pdf`, `proposta-pt.pdf` | Cópias dos planos do TSE, para conferir páginas. Não são publicadas. |
@@ -56,4 +57,10 @@ Só o que está em `public/` vai ao ar.
 - Nomes e textos em português; ES modules; sem build e sem transpilação.
 - 2 espaços, aspas simples, sem ponto e vírgula, funções pequenas.
 - Comentário só para explicar o porquê, não o quê.
-- Tema claro único, com cores neutras (nada que lembre as cores dos partidos).
+
+## Visual
+
+- Editorial, "papel e tinta": fundo creme, texto em tinta escura e sépia como único acento. Tema claro único.
+- Nenhuma cor que lembre partido (vermelho, azul, verde-amarelo). Nada de degradês, sombras difusas, roxo ou ícones decorativos: eles dão cara de template.
+- Serifada do sistema nos títulos e nas propostas; sem serifa só em rótulos, botões e números de interface. Nenhuma fonte externa (a CSP não permite).
+- Prévia de link: as tags Open Graph do `index.html` precisam de URL absoluta. O teste confere as tags e o peso da imagem.

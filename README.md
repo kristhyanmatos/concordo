@@ -26,6 +26,12 @@ Tudo roda no navegador: nenhuma resposta é enviada ou salva. O site não usa co
 
 Pelo terminal também funciona: `npx vercel` cria um preview e `npx vercel --prod` publica.
 
+### Prévia no WhatsApp
+
+O link compartilhado mostra título, descrição e a imagem `public/compartilhar.png` (1200×630). O WhatsApp exige endereço absoluto, e o `index.html` usa `https://concordo.vercel.app`. Se o seu domínio for outro, troque esse endereço nas tags `canonical`, `og:url` e `og:image`.
+
+O WhatsApp guarda a prévia em cache. Para testar depois de mudar algo, compartilhe o link com um parâmetro novo, como `?v=2`.
+
 ## Rodar localmente
 
 O front-end usa ES modules, então precisa ser servido por HTTP. Abrir o `index.html` direto do disco não funciona.

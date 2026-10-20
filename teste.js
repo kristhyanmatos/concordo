@@ -32,6 +32,15 @@ assert.equal(placar({ a: -2, b: -2 }).pl, 100)
 const html = readFileSync(new URL('./public/index.html', import.meta.url), 'utf8')
 assert.doesNotMatch(html, /<script(?![^>]*\bsrc=)[^>]*>/, 'script inline quebra com a CSP')
 assert.doesNotMatch(html, /<style|\sstyle=|\son[a-z]+=/i, 'estilo inline ou onclick quebram com a CSP')
+// 4. Prévia no WhatsApp: tags Open Graph com URL absoluta e imagem leve com as dimensões declaradas
+const meta = (prop) => html.match(new RegExp(`<meta property="${prop}" content="([^"]+)"`))?.[1]
+for (const prop of ['og:title', 'og:description', 'og:url', 'og:image']) assert.ok(meta(prop), `${prop} ausente`)
+assert.match(meta('og:url'), /^https:\/\//, 'og:url precisa ser absoluta')
+assert.match(meta('og:image'), /^https:\/\/.+\/compartilhar\.png$/, 'og:image precisa ser absoluta')
+const imagem = readFileSync(new URL('./public/compartilhar.png', import.meta.url))
+assert.ok(imagem.length < 300_000, 'imagem de prévia acima de 300 KB (o WhatsApp pode ignorar)')
+assert.deepEqual([imagem.readUInt32BE(16), imagem.readUInt32BE(20)], [Number(meta('og:image:width')), Number(meta('og:image:height'))])
+
 const vercel = JSON.parse(readFileSync(new URL('./vercel.json', import.meta.url), 'utf8'))
 const csp = vercel.headers[0].headers.find((h) => h.key === 'Content-Security-Policy').value
 assert.match(csp, /default-src 'none'/)
