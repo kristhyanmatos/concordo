@@ -146,8 +146,9 @@ details { border-bottom: 1px solid var(--linha); }
 summary { display: flex; align-items: baseline; gap: 12px; padding: 14px 2px; cursor: pointer; list-style: none; font: 0.88rem/1.4 var(--sans); color: var(--suave); }
 summary::-webkit-details-marker { display: none; }
 summary .tema { flex: 1; font: 700 1.02rem/1.3 var(--serifa); color: var(--tinta); }
-summary::after { content: "+"; font-weight: 700; color: var(--acento); }
-details[open] summary::after { content: "−"; }
+/* Seta feita com bordas, não com caractere: sai igual em qualquer fonte do sistema */
+summary::after { content: ""; flex: none; width: 6px; height: 6px; margin: 0 2px; border: solid var(--acento); border-width: 0 2px 2px 0; transform: translateY(-2px) rotate(45deg); }
+details[open] summary::after { transform: translateY(2px) rotate(-135deg); }
 details > :not(summary) { margin: 0 0 12px; }
 details .proposta { font-size: 0.98rem; }
 .preferida { border-left: 3px solid var(--acento); }
