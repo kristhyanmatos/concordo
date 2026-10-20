@@ -1,0 +1,10 @@
+{
+  "name": "concordo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Teste apartidário: escolha propostas, não nomes.",
+  "type": "module",
+  "scripts": {
+    "test": "node teste.js"
+  }
+}

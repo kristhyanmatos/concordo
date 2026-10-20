@@ -1,0 +1,6 @@
+# Banco da versão antiga (com coleta de respostas): nunca vai para o repositório
+*.db
+*.db-journal
+node_modules/
+.env*
+.vercel/

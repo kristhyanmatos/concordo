@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concordo</title>
+  <meta name="description" content="Teste apartidário: compare propostas dos candidatos à Presidência sem saber de quem é cada uma.">
+  <meta property="og:title" content="Concordo: propostas, não nomes">
+  <meta property="og:description" content="Teste apartidário. Escolha entre propostas sem saber de quem são e descubra com quem você mais concorda.">
+  <meta name="theme-color" content="#f6f5f1">
+  <link rel="icon" href="icone.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilo.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<main>
+  <section id="inicio">
+    <header class="marca">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M9.5 16.5l4.5 4.5 8.5-9"/></svg>
+      <span class="marca-nome">Concordo</span>
+      <span class="selo">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M8 21h8M4 7h16M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/></svg>
+        Apartidário
+      </span>
+    </header>
+
+    <h1>Escolha propostas, não nomes.</h1>
+    <p class="lead">Compare as propostas dos candidatos à Presidência sem saber de quem é cada uma. No final, descubra com quem você mais concorda.</p>
+
+    <div class="vitrine" aria-hidden="true">
+      <div class="mini">
+        <span class="mini-topo">Proposta A <span class="oculto">?</span></span>
+        <i></i><i></i><i class="curta"></i>
+      </div>
+      <div class="mini mini-b">
+        <span class="mini-topo">Proposta B <span class="oculto">?</span></span>
+        <i></i><i class="curta"></i>
+      </div>
+      <div class="mini-escala"><b></b><b></b><b></b><b class="ativa"></b><b></b></div>
+    </div>
+
+    <ul class="chips">
+      <li>
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></svg>
+        <span id="qtd">12 perguntas</span>
+      </li>
+      <li>
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        3 minutos
+      </li>
+      <li>
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+        Nada é salvo
+      </li>
+    </ul>
+
+    <button class="botao" id="comecar" type="button">Começar o teste</button>
+    <noscript><p class="erro">Ative o JavaScript para responder.</p></noscript>
+
+    <h2 class="secao">Como funciona</h2>
+    <ol class="passos">
+      <li>
+        <span class="passo-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></svg></span>
+        <div><b>Leia sem saber de quem é</b><span>Em cada tema, duas propostas reais, sem nomes nem partidos.</span></div>
+      </li>
+      <li>
+        <span class="passo-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/></svg></span>
+        <div><b>Diga qual prefere, e o quanto</b><span>Uma escala de 5 pontos, de "muito A" a "muito B".</span></div>
+      </li>
+      <li>
+        <span class="passo-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+        <div><b>Descubra com quem concorda</b><span>No final, revelamos de quem era cada proposta.</span></div>
+      </li>
+    </ol>
+
+    <aside class="fonte">
+      <span class="fonte-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+      <div>
+        <b>Fonte oficial: planos de governo registrados no TSE</b>
+        <p>Cada proposta foi resumida dos planos que os candidatos entregaram ao Tribunal Superior Eleitoral, com a página citada.</p>
+        <p class="links">
+          <a data-plano="pl" target="_blank" rel="noopener">Plano do PL <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          <a data-plano="pt" target="_blank" rel="noopener">Plano do PT <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </p>
+      </div>
+    </aside>
+
+    <p class="nota"><b>Projeto apartidário:</b> não tem ligação com partidos nem candidatos e não recomenda voto. Suas respostas ficam só no seu navegador; nada é enviado nem salvo.</p>
+  </section>
+
+  <section id="item" hidden>
+    <div class="topo">
+      <div class="progresso"><span id="barra"></span></div>
+      <span class="nota" id="contador"></span>
+    </div>
+    <p class="rotulo" id="tema"></p>
+    <h2 id="pergunta" tabindex="-1"></h2>
+    <div class="proposta"><b>Proposta A</b><span id="texto-a"></span></div>
+    <div class="proposta"><b>Proposta B</b><span id="texto-b"></span></div>
+    <p class="pergunta-escala" id="rotulo-escala">Qual você prefere?</p>
+    <div class="escala" role="group" aria-labelledby="rotulo-escala">
+      <button type="button" data-v="-2" aria-label="Prefiro muito a proposta A"><span class="bola"></span>Muito A</button>
+      <button type="button" data-v="-1" aria-label="Prefiro um pouco a proposta A"><span class="bola"></span>Um pouco A</button>
+      <button type="button" data-v="0" aria-label="Sem preferência"><span class="bola"></span>Neutro</button>
+      <button type="button" data-v="1" aria-label="Prefiro um pouco a proposta B"><span class="bola"></span>Um pouco B</button>
+      <button type="button" data-v="2" aria-label="Prefiro muito a proposta B"><span class="bola"></span>Muito B</button>
+    </div>
+    <button class="link" type="button" id="voltar">← Voltar</button>
+  </section>
+
+  <section id="resultado" hidden>
+    <p class="rotulo">Seu resultado</p>
+    <h2 id="veredito" tabindex="-1"></h2>
+    <div class="placar"><span id="barra-resultado"></span></div>
+    <div class="legenda"><span id="legenda-1"></span><span id="legenda-2"></span></div>
+    <p id="resumo"></p>
+    <h3>De quem era cada proposta</h3>
+    <div id="gabarito"></div>
+    <p class="nota"><span id="nota-sorteio"></span> As propostas resumem os planos de governo registrados no TSE
+      (<a data-plano="pl" target="_blank" rel="noopener">PL</a> · <a data-plano="pt" target="_blank" rel="noopener">PT</a>);
+      confira as páginas citadas. Projeto apartidário: não recomenda voto e não salva suas respostas.</p>
+    <button class="botao" id="refazer" type="button">Refazer com outras propostas</button>
+  </section>
+</main>
+</body>
+</html>
